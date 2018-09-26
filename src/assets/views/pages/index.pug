@@ -1,0 +1,47 @@
+include ./../common/_mixins
+
+block variables
+  - 
+    var feeds = [
+      ['Нямушка', 'с фуа-гра',  '10 порций', 'мышь в подарок', '', '0,5', 'Печень утки разварная с артишоками'],
+      ['Нямушка', 'с рыбой',  '40 порций', '2 мыши в подарок', '', '2', 'Головы щучьи с чесноком да свежайшая сёмгушка'],
+      ['Нямушка', 'с курой',  '100 порций', '5 мышей в подарок', 'заказчик доволен', '5', 'Филе из цыплят с трюфелями в бульоне']]      
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(content="ie=edge" http-equiv="x-ua-compatible")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
+    
+    title Тестовое задание
+    link(rel='stylesheet' href='styles/main.min.css')
+  body
+    .wrapper
+      .maincontent
+        section.section
+          h2.section__title Ты сегодня покормил кота?
+
+          ul.feed-list
+            each item in feeds
+              li.feed-list__item
+                .feed
+                  .feed__description
+                    p.feed__type Сказочное заморское яство
+                    h3.feed__name #{item[0]}
+                    h4.feed__sub-name #{item[1]}
+                    p.feed__portion #{item[2]}
+                    p.feed__gift #{item[3]}
+                    p.feed__add #{item[4]}
+                  .feed__pic
+                    +image('cat.png', `${item[0]}`, 'feed__img')
+                  .feed__weight 
+                    .feed-weight  
+                      .feed-weight__value #{item[5]}
+                      .feed-weight__unit кг
+                .feed-list__order Чего сидишь? Порадуй котэ,&nbsp; 
+                  a(href="#").feed-list__order-link  купи
+                .feed-list__comment.feed-list__comment--hidden #{item[6]}
+                .feed-list__ended Печалька, #{item[1]} закончился
+
+    script(src="scripts/select.bundle.js")

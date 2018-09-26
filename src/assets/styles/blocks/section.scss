@@ -1,0 +1,18 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  background-image: url("./../images/content/Pattern.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section__title {
+  font-family: "Exo";
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 20px;
+}
